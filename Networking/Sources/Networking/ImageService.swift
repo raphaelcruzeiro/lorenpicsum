@@ -10,38 +10,10 @@ import Models
 
 public class ImageService {
     
-    private enum Endpoint {
-        case list(page: Int)
-        
-        var baseURL: URL {
-            return URL(string: "https://picsum.photos")!
-        }
-        
-        var path: String {
-            switch self {
-            case .list: return "v2/list"
-            }
-        }
-        
-        var query: [URLQueryItem] {
-            switch self {
-            case .list(let page): return [URLQueryItem(name: "page", value: "\(page)")]
-            }
-        }
-        
-        var url: URL {
-            let url = baseURL.appendingPathComponent(path)
-            var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
-            components?.queryItems = query
-            
-            return components?.url ?? url
-        }
-    }
-    
     public init() {}
     
     public func fetch(page: Int = 0) async throws -> [ImageListItem] {
-        let response = try await fire(request: URLRequest(url: Endpoint.list(page: page).url))
+        let response = try await fire(request: ImageEndpoint.list(page: page).request)
         return try JSONDecoder().decode([ImageListItem].self, from: response.0)
     }
     
