@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Models">
+   </FileRef>
+   <FileRef
       location = "group:Loren Picsum.xcodeproj">
    </FileRef>
 </Workspace>

@@ -12,6 +12,7 @@
 		A0B0A0CB276E3AE30066A2D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B0A0CA276E3AE30066A2D7 /* ViewController.swift */; };
 		A0B0A0D0276E3AE40066A2D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0B0A0CF276E3AE40066A2D7 /* Assets.xcassets */; };
 		A0B0A0D3276E3AE40066A2D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0B0A0D1276E3AE40066A2D7 /* LaunchScreen.storyboard */; };
+		A0B0A0DC276E40830066A2D7 /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = A0B0A0DB276E40830066A2D7 /* Models */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0B0A0DC276E40830066A2D7 /* Models in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +42,7 @@
 			children = (
 				A0B0A0C5276E3AE30066A2D7 /* Loren Picsum */,
 				A0B0A0C4276E3AE30066A2D7 /* Products */,
+				A0B0A0DA276E40830066A2D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +67,13 @@
 			path = "Loren Picsum";
 			sourceTree = "<group>";
 		};
+		A0B0A0DA276E40830066A2D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,6 +90,9 @@
 			dependencies = (
 			);
 			name = "Loren Picsum";
+			packageProductDependencies = (
+				A0B0A0DB276E40830066A2D7 /* Models */,
+			);
 			productName = "Loren Picsum";
 			productReference = A0B0A0C3276E3AE30066A2D7 /* Loren Picsum.app */;
 			productType = "com.apple.product-type.application";
@@ -348,6 +361,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A0B0A0DB276E40830066A2D7 /* Models */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Models;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A0B0A0BB276E3AE30066A2D7 /* Project object */;
 }
