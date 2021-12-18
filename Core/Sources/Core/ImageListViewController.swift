@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  Loren Picsum
+//  File.swift
+//  
 //
 //  Created by Raphael Cruzeiro on 18/12/2021.
 //
@@ -8,17 +8,17 @@
 import UIKit
 import Networking
 
-class ViewController: UIViewController {
+public class ImageListViewController: UIViewController {
     
     let imageService = ImageService()
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         Task {
             do {
-                let images = try await imageService.fetch()
+                let images = try await imageService.list()
                 print(images)
             } catch {
                 print(error.localizedDescription)
@@ -27,4 +27,3 @@ class ViewController: UIViewController {
     }
 
 }
-

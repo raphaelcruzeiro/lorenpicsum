@@ -6,15 +6,20 @@
 //
 
 import Foundation
+import CoreImage
 import Models
 
 public class ImageService {
     
     public init() {}
     
-    public func fetch(page: Int = 0) async throws -> [ImageListItem] {
+    public func list(page: Int = 0) async throws -> [ImageListItem] {
         let response = try await fire(request: ImageEndpoint.list(page: page).request)
         return try JSONDecoder().decode([ImageListItem].self, from: response.0)
+    }
+    
+    public func fetch(id: String, size: CGSize) async throws -> Data {
+        return try await fire(request: ImageEndpoint.fetch(id: id, size: size).request).0
     }
     
     private func fire(request: URLRequest) async throws -> (Data, URLResponse) {

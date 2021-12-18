@@ -9,18 +9,15 @@
 /* Begin PBXBuildFile section */
 		A0B0A0C7276E3AE30066A2D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B0A0C6276E3AE30066A2D7 /* AppDelegate.swift */; };
 		A0B0A0C9276E3AE30066A2D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B0A0C8276E3AE30066A2D7 /* SceneDelegate.swift */; };
-		A0B0A0CB276E3AE30066A2D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B0A0CA276E3AE30066A2D7 /* ViewController.swift */; };
 		A0B0A0D0276E3AE40066A2D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0B0A0CF276E3AE40066A2D7 /* Assets.xcassets */; };
 		A0B0A0D3276E3AE40066A2D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0B0A0D1276E3AE40066A2D7 /* LaunchScreen.storyboard */; };
-		A0B0A0DC276E40830066A2D7 /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = A0B0A0DB276E40830066A2D7 /* Models */; };
-		A0B0A0DE276E4E860066A2D7 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = A0B0A0DD276E4E860066A2D7 /* Networking */; };
+		A0B0A0E0276E69B60066A2D7 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = A0B0A0DF276E69B60066A2D7 /* Core */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A0B0A0C3276E3AE30066A2D7 /* Loren Picsum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Loren Picsum.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0B0A0C6276E3AE30066A2D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0B0A0C8276E3AE30066A2D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A0B0A0CA276E3AE30066A2D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A0B0A0CF276E3AE40066A2D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0B0A0D2276E3AE40066A2D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0B0A0D4276E3AE40066A2D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,8 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0B0A0DE276E4E860066A2D7 /* Networking in Frameworks */,
-				A0B0A0DC276E40830066A2D7 /* Models in Frameworks */,
+				A0B0A0E0276E69B60066A2D7 /* Core in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,7 +57,6 @@
 			children = (
 				A0B0A0C6276E3AE30066A2D7 /* AppDelegate.swift */,
 				A0B0A0C8276E3AE30066A2D7 /* SceneDelegate.swift */,
-				A0B0A0CA276E3AE30066A2D7 /* ViewController.swift */,
 				A0B0A0CF276E3AE40066A2D7 /* Assets.xcassets */,
 				A0B0A0D1276E3AE40066A2D7 /* LaunchScreen.storyboard */,
 				A0B0A0D4276E3AE40066A2D7 /* Info.plist */,
@@ -93,8 +88,7 @@
 			);
 			name = "Loren Picsum";
 			packageProductDependencies = (
-				A0B0A0DB276E40830066A2D7 /* Models */,
-				A0B0A0DD276E4E860066A2D7 /* Networking */,
+				A0B0A0DF276E69B60066A2D7 /* Core */,
 			);
 			productName = "Loren Picsum";
 			productReference = A0B0A0C3276E3AE30066A2D7 /* Loren Picsum.app */;
@@ -150,7 +144,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0B0A0CB276E3AE30066A2D7 /* ViewController.swift in Sources */,
 				A0B0A0C7276E3AE30066A2D7 /* AppDelegate.swift in Sources */,
 				A0B0A0C9276E3AE30066A2D7 /* SceneDelegate.swift in Sources */,
 			);
@@ -367,13 +360,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A0B0A0DB276E40830066A2D7 /* Models */ = {
+		A0B0A0DF276E69B60066A2D7 /* Core */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = Models;
-		};
-		A0B0A0DD276E4E860066A2D7 /* Networking */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Networking;
+			productName = Core;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
