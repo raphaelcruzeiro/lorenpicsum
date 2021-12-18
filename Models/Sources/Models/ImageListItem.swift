@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class ImageListItem: Decodable, Identifiable {
+public class ImageListItem: Decodable, Identifiable, CustomDebugStringConvertible {
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -25,6 +25,10 @@ public class ImageListItem: Decodable, Identifiable {
         self.id = try container.decode(String.self, forKey: .id)
         self.author = try container.decode(String.self, forKey: .author)
         self.downloadURL = try container.decode(URL.self, forKey: .downloadURL)
+    }
+    
+    public var debugDescription: String {
+        return [id, author].joined(separator: " - ")
     }
     
 }

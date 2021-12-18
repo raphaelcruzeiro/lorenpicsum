@@ -6,12 +6,24 @@
 //
 
 import UIKit
+import Networking
 
 class ViewController: UIViewController {
+    
+    let imageService = ImageService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        Task {
+            do {
+                let images = try await imageService.fetch()
+                print(images)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
     }
 
 }
