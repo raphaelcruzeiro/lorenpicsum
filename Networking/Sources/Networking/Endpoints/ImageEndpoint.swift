@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import CoreImage
 
 enum ImageEndpoint {
     case list(page: Int)
+    case fetch(id: String, size: CGSize)
     
     var baseURL: URL {
         return URL(string: "https://picsum.photos")!
@@ -17,12 +19,14 @@ enum ImageEndpoint {
     var path: String {
         switch self {
         case .list: return "v2/list"
+        case .fetch(let id, let size): return "id/\(id)/\(Int(size.width))/\(Int(size.height))"
         }
     }
     
-    var query: [URLQueryItem] {
+    var query: [URLQueryItem]? {
         switch self {
         case .list(let page): return [URLQueryItem(name: "page", value: "\(page)")]
+        default: return nil
         }
     }
     
