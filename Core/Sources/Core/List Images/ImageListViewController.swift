@@ -39,7 +39,7 @@ public class ImageListViewController: ScrollViewController<ImageListView, ImageL
                     cell.imageView.image = image
                     cell.activityIndicator.stopAnimating()
                 } catch {
-                    // We could add a placeholder here
+                    // We could add an error state here
                 }
             }
             
