@@ -15,6 +15,8 @@ open class HostingViewController<V: UIView>: ViewController {
     
     open override func loadView() {
         self.view = V()
+        
+        (view as? Setupable)?.setup()
     }
     
 }

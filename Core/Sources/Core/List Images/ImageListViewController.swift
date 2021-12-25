@@ -50,6 +50,11 @@ public class ImageListViewController: ScrollViewController<ImageListView, ImageL
         collectionView.delegate = self
         collectionView.dataSource = dataSource
     }
+    
+    public override func setupStrings() {
+        super.setupStrings()
+        title = "Loren Picsum"
+    }
 
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -57,7 +62,7 @@ public class ImageListViewController: ScrollViewController<ImageListView, ImageL
     }
     
     func load(page: Int = 1) {
-        if isLoading {
+        if isLoading || (page == 1 && !viewModel.items.isEmpty) {
             return
         }
         
@@ -93,9 +98,17 @@ extension ImageListViewController: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let maxRow = (collectionView.indexPathsForVisibleItems.map({ $0.row }).max() ?? 0)
         
-        if maxRow >= (viewModel.sections.first?.items.count ?? 0) - 6 {
+        if maxRow >= viewModel.items.count - 6 {
             load(page: viewModel.currentPage + 1)
         }
+    }
+
+    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let item = viewModel.item(for: indexPath) else { return }
+        navigationController?.pushViewController(
+            ImageDetailsViewController(viewModel: ImageDetailsViewModel(item: item)),
+            animated: true
+        )
     }
     
 }
