@@ -14,6 +14,8 @@ public class ImageListViewController: ScrollViewController<ImageListView, ImageL
     
     private var isLoading = false
     
+    private let activityIndicatorView = UIActivityIndicatorView()
+    
     var collectionView: UICollectionView {
         return hostedView.collectionView
     }
@@ -49,6 +51,7 @@ public class ImageListViewController: ScrollViewController<ImageListView, ImageL
         super.setup()
         collectionView.delegate = self
         collectionView.dataSource = dataSource
+        collectionView.backgroundView = activityIndicatorView
     }
     
     public override func setupStrings() {
@@ -68,6 +71,8 @@ public class ImageListViewController: ScrollViewController<ImageListView, ImageL
         
         isLoading = true
         
+        activityIndicatorView.startAnimating()
+        
         Task {
             do {
                 let newImages = try await viewModel.fetch(page: page)
@@ -86,6 +91,8 @@ public class ImageListViewController: ScrollViewController<ImageListView, ImageL
             } catch {
                 print(error.localizedDescription)
             }
+            
+            activityIndicatorView.stopAnimating()
             
             isLoading = false
         }
