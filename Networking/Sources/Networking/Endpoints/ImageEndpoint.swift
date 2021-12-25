@@ -39,6 +39,10 @@ enum ImageEndpoint {
     }
     
     var request: URLRequest {
-        return URLRequest(url: url)
+        switch self {
+        case .fetch: return URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad)
+        case  .list: return URLRequest(url: url)
+        }
+        
     }
 }
