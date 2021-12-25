@@ -31,8 +31,8 @@ let package = Package(
                 "Networking",
                 "Utils"
             ]),
-        .testTarget(
-            name: "CoreTests",
-            dependencies: ["Core"]),
+//        .testTarget(
+//            name: "CoreTests",
+//            dependencies: ["Core"]),
     ]
 )

@@ -13,7 +13,6 @@ import Networking
 
 public final class ImageListViewModel: ViewModel {
     
-    // TODO: move this
     let imageService = ImageService()
     
     public typealias Item = ImageListItem

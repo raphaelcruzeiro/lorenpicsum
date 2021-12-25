@@ -7,8 +7,27 @@
 
 import UIKit
 import Utils
+import Models
 
+@MainActor
 public class ImageListViewController: ScrollViewController<ImageListView, ImageListViewModel> {
+    
+    actor ImageLoader {
+        
+        func loadImage(for item: ImageListItem, with size: CGSize, and viewModel: ImageListViewModel) async throws -> UIImage? {
+            let imageData = try await viewModel.image(
+                for: item,
+                with: size
+            )
+            
+            assert(!Thread.isMainThread)
+            let image = UIImage(data: imageData)
+            return image
+        }
+        
+    }
+    
+    private let imageLoaderActor = ImageLoader()
     
     private let thumbSize: CGFloat = 600
     
@@ -25,17 +44,12 @@ public class ImageListViewController: ScrollViewController<ImageListView, ImageL
             let cell: ImageCollectionViewCell = collectionView.dequeue(for: indexPath)
             cell.item = self.viewModel.item(for: indexPath)
             
-            Task {
+            Task(priority: .medium) {
                 do {
                     guard let item = self.viewModel.item(for: indexPath) else { return }
                     cell.activityIndicator.startAnimating()
                     
-                    let imageData = try await self.viewModel.image(
-                        for: item,
-                        with: CGSize(width: self.thumbSize, height: self.thumbSize)
-                    )
-                    
-                    let image = UIImage(data: imageData)
+                    let image = try await self.imageLoaderActor.loadImage(for: item, with: CGSize(width: self.thumbSize, height: self.thumbSize), and: self.viewModel)
                     cell.imageView.image = image
                     cell.activityIndicator.stopAnimating()
                 } catch {
