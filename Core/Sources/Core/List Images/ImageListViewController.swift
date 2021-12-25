@@ -62,7 +62,7 @@ public class ImageListViewController: ScrollViewController<ImageListView, ImageL
     }
     
     func load(page: Int = 1) {
-        if isLoading || (page == 1 && !viewModel.items.isEmpty) {
+        if isLoading || (page == 1 &&    !viewModel.items.isEmpty) {
             return
         }
         
