@@ -1,5 +1,7 @@
 #  Loren Picsum
 
+![](https://raw.githubusercontent.com/raphaelcruzeiro/lorenpicsum/main/demo.gif)
+
 This project is a simple iOS app that displays the usage of modern Apple APIs and some of the newest Swift Language features (as of December 2021). This project displays a browsable list of images from [Loren Picsum](https://picsum.photos).
 
 ## Premises
